@@ -1,0 +1,17 @@
+.container-cards {
+    justify-content: space-between;
+}
+
+.card {
+    width: 220px;
+    height: auto;
+    margin-inline: 10px;
+    margin-block: 10px;
+}
+
+.card img {
+    object-fit: cover;
+    aspect-ratio: 10/16;
+    width: 100%;
+
+}
