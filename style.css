@@ -1,35 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Satisfy&display=swap");
 
-body {
+/* body {
   background: burlywood;
-}
+} */
 
 .navbar {
   padding: 0;
 }
 
 .navbar-brand {
-    font-family: "Caveat";
-    font-size: 25px;
+  font-family: "Caveat";
+  font-size: 25px;
 }
 
 .container-fluid {
-  background: #b75555;
+  background: #ca6363;
 }
 
 .infoBook {
-    height: auto;
-    width: 400px;
-    background: burlywood;
+  height: auto;
+  width: 400px;
+  background: burlywood;
 }
 
 .search-book {
-    background: #b75555 ;
+  background: #954a4a;
 }
 
 .search-book input {
-    background: burlywood;
-    
+  background: burlywood;
 }
 
 .container-cards {
@@ -43,11 +42,13 @@ body {
   margin-inline: 10px;
   margin-block: 10px;
   border-radius: 5px 5px 5px 0px;
-  background: #b75555;
+  /* background: #954a4a; */
+  background: burlywood;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0;
+  border: 1px solid black;
 }
 
 .card img {
@@ -62,7 +63,7 @@ body {
 }
 
 .description {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .button {
