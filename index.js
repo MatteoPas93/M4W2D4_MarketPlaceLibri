@@ -8,8 +8,6 @@ const booksHtml = () => {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data) => {
-      
-
       // !NAV SECTION
 
       nav.setAttribute("class", "container-nav");
@@ -60,11 +58,10 @@ const booksHtml = () => {
                      <button class="shop" onclick="addCart(event); changeColor(event)"> Acquista </button>
                   </div>
           </div>`;
-      })
-      .catch(err)
-      console.log(err);
-    });
-    
+      });
+    })
+    .catch(err);
+  console.log(err);
 };
 
 booksHtml();
@@ -79,7 +76,7 @@ const searchBooks = function (searchEvent) {
       const searchInput = searchEvent.target.value.toLowerCase();
 
       if (searchInput.length > 3) {
-        // Filtro i titoli 
+        // Filtro i titoli
         const result = data2.filter((bookSearch) =>
           bookSearch.title.toLowerCase().includes(searchInput)
         );
@@ -104,14 +101,12 @@ const searchBooks = function (searchEvent) {
                   </div>
           </div> `;
           });
-        };
-      } 
-      else {
+        }
+      } else {
         containerCard.innerHTML = "<h2> Aggiungi altre informazioni </h2>";
       }
     });
 };
-
 
 //  !NASCONDI CARD
 
@@ -126,7 +121,7 @@ function nascondiCard(removeEvent) {
 
   // !Ho visto che è possibile fare lo stesso lavoro con style.display, è una cosa corretta oppure è
   // !più corretto il metodo che ho utilizzato con classList?
-  
+
   // const cardNascosta = removeEvent.target.closest(".card");
   // // console.log(cardNascosta);
   // if (cardNascosta) {
@@ -178,7 +173,7 @@ const cardContent = document.querySelectorAll(".col-4");
 
 function changeColor(colorEvent) {
   colorEvent.target.closest(".card").classList.toggle("color-button");
-};
+}
 
 // !RIMUOVI DA CARRELLO
 
@@ -187,5 +182,4 @@ function removeProductCart(removeCartEvent) {
   if (removedProduct) {
     removedProduct.remove();
   }
-};
-
+}
