@@ -3,49 +3,14 @@ const booksApi = "https://striveschool-api.herokuapp.com/books";
 let nav = document.createElement("nav");
 let containerCard = document.createElement("div");
 const input = document.querySelector("#search-input");
-let total = 0 
-// const totalCart = document.querySelector(".total-cart")
+ 
+
 const booksHtml = () => {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data) => {
       // console.log(data);
-
-      // !FUNZIONE INPUT RICERCA LIBRO
-      const searchBooks = function (search) {
-        if (search.length > 3) {
-          const result = data.filter((libro) =>
-            libro.title.toLowerCase().includes(search)
-          );
-          if (result.length > 0) {
-            result.map((book) => {
-              containerCard.innerHTML = "";
-              containerCard.innerHTML += ` 
-              <div class="card col-4">
-            <img class="book-img" src="${book.img}" alt="img libro"/>                           
-                <div class="description">                        
-                   <h5 class="title-book"> Title: ${book.title}. </h5>                       
-                   <h6> Category: ${book.category}. </h6>                      
-                   <h6 class="price-book"> Price: ${book.price}€ </h6>
-                </div>                       
-                <div class="button">                      
-                  <div class="button-skip">
-                     <button id="nascondi" onclick="nascondiCard(event)"> Nascondi </button>
-                  </div>
-                  <div class="button-shop">
-                     <button class="shop" onclick="addCart(event)"> Acquista </button>
-                  </div>
-          </div> `;
-            });
-          } else {
-            containerCard.innerHTML = "";
-            containerCard.innerHTML += `<h5> Nessun libro trovato </h5>`;
-          }
-        }
-      };
       
-
-
 // !NAV SECTION
 
       nav.setAttribute("class", "container-nav");
@@ -71,7 +36,7 @@ const booksHtml = () => {
                         </ul>
                     </div>
                     <div class="search-book">
-                        <input onchange="searchBooks()" type="search" placeholder="Search Books" id="search-input">
+                        <input onchange="searchBooks(event)" type="search" placeholder="Search Books" id="search-input">
                     </div>
              </div>
          </nav> `;
@@ -96,9 +61,7 @@ const booksHtml = () => {
           </div>`;
         });
 
-        input.addEventListener("change", () => {
-              searchBooks(input.value);
-            });
+        
     });
 };
 
@@ -106,9 +69,50 @@ booksHtml();
 
 // !RICERCA LIBRI
 
-
-// Aggiungi un ascoltatore di eventi all'input per chiamare la funzione di ricerca
-// input.addEventListener('input', searchBooks());
+      const searchBooks = function (searchEvent) {
+        fetch(booksApi)
+        .then(res => res.json())
+        .then((data2) => {
+          // console.log(data2);
+          const searchInput = searchEvent.target.value.toLowerCase();
+        // searchEvent = document.querySelector(".title-book").textContent
+        // console.log(searchEvent);
+        if (searchInput.length > 3) {
+          const result = data2.filter((bookSearch) =>
+            bookSearch.title.toLowerCase().includes(searchInput)
+          );
+          if (result.length > 0) {
+            result.forEach((book) => {
+              containerCard.innerHTML = "";
+              containerCard.innerHTML += ` 
+              <div class="card col-4">
+            <img class="book-img" src="${book.img}" alt="img libro"/>                           
+                <div class="description">                        
+                   <h5 class="title-book"> Title: ${book.title}. </h5>                       
+                   <h6> Category: ${book.category}. </h6>                      
+                   <h6 class="price-book"> Price: ${book.price}€ </h6>
+                </div>                       
+                <div class="button">                      
+                  <div class="button-skip">
+                     <button id="nascondi" onclick="nascondiCard(event)"> Nascondi </button>
+                  </div>
+                  <div class="button-shop">
+                     <button class="shop" onclick="addCart(event)"> Acquista </button>
+                  </div>
+          </div> `;
+            });
+          } else {
+            containerCard.innerHTML = "";
+            containerCard.innerHTML += `<h4> Nessun titolo corrispondente </h4>`;
+          };
+        };
+      });
+    };
+      
+     
+      // input.addEventListener("change", () => {
+      //         searchBooks(input.value);
+      //       });
 
 //  !NASCONDI CARD
 
@@ -121,8 +125,8 @@ function nascondiCard(removeEvent) {
 
   removeEvent.target.closest(".card").classList.add("display-none");
 
-  // !Ho visto che è possibile fare lo stesso lavoro con style.display, è una cosa corretta oppure è meglio il metodo
-  // ! che ho utilizzato con classList?
+  // !Ho visto che è possibile fare lo stesso lavoro con style.display, è una cosa corretta oppure è  
+  // !più corretto il metodo che ho utilizzato con classList?
   // const cardNascosta = removeEvent.target.closest(".card");
   // // console.log(cardNascosta);
   // if (cardNascosta) {
