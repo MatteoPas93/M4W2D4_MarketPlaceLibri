@@ -60,8 +60,11 @@ const booksHtml = () => {
                      <button class="shop" onclick="addCart(event); changeColor(event)"> Acquista </button>
                   </div>
           </div>`;
-      });
+      })
+      .catch(err)
+      console.log(err);
     });
+    
 };
 
 booksHtml();
