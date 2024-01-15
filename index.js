@@ -98,10 +98,9 @@ const searchBooks = function (searchEvent) {
                   </div>
           </div> `;
           });
-        } else {
-          containerCard.innerHTML += `<h4> Nessun titolo corrispondente </h4>`;
-        }
-      } else {
+        };
+      } 
+      else {
         containerCard.innerHTML = "<h2> Aggiungi altre informazioni </h2>";
       }
     });
