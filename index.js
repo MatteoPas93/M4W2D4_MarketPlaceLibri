@@ -72,13 +72,16 @@ const searchBooks = function (searchEvent) {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data2) => {
+      // Creo una variabile contenente il valore dell'elemento dell'evento.
       const searchInput = searchEvent.target.value.toLowerCase();
 
       if (searchInput.length > 3) {
+        // Filtro i titoli 
         const result = data2.filter((bookSearch) =>
           bookSearch.title.toLowerCase().includes(searchInput)
         );
         if (result.length <= 3) {
+          // Ciclo attraverso il forEach tutti i titoli
           result.forEach((book) => {
             containerCard.innerHTML = "";
             containerCard.innerHTML += ` <h1> Libri trovati: </h1>
