@@ -28,7 +28,10 @@ const booksHtml = () => {
                                 Carrello
                               </a>
                             <ul class="dropdown-menu infoBook">
-                                                                       
+                               <div class="d-flex flex-wrap justify-content-around align-items-center>
+                                 <h5 class="modal-cart-title"> Prodotti nel carrello: </h5>  
+                                 <button class="modal-close"> Chiudi carrello </button> 
+                               </div>                                     
                             </ul>
                           </li>
                         </ul>
@@ -146,10 +149,9 @@ function addCart(addEvent) {
               </p>
           </div>
           <div class="modal-button"> 
-            <button> <b> - </b> </button>
+            <button class="remove-products" onclick="removeProductCart(event)"> <b> - </b> </button>
             <button> <b> + </b> </button>
           </div>
-         
       </div>
     `;
 
@@ -163,14 +165,24 @@ function addCart(addEvent) {
 
     const newContent = currentContentCart + productInfo;
     infoBookModal.innerHTML = newContent;
-
-    // Cambio colore del bottone shop
   }
 }
+
+// !CAMBIO COLORE
 
 const buttonColor = document.querySelectorAll(".shop");
 const cardContent = document.querySelectorAll(".col-4");
 
 function changeColor(colorEvent) {
   colorEvent.target.closest(".card").classList.toggle("color-button");
-}
+};
+
+// !RIMUOVI DA CARRELLO
+
+function removeProductCart(removeCartEvent) {
+  const removedProduct = removeCartEvent.target.closest(".modal-text");
+  if (removedProduct) {
+    removedProduct.remove();
+  }
+};
+
