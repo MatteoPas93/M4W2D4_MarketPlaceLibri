@@ -54,7 +54,7 @@ const booksHtml = () => {
                      <button id="nascondi" onclick="nascondiCard(event)"> Nascondi </button>
                   </div>
                   <div class="button-shop">
-                     <button class="shop" onclick="addCart(event)"> Acquista </button>
+                     <button class="shop" onclick="addCart(event); changeColor(event)"> Acquista </button>
                   </div>
           </div>`;
       });
@@ -97,12 +97,12 @@ const searchBooks = function (searchEvent) {
           });
         } else {
           containerCard.innerHTML += `<h4> Nessun titolo corrispondente </h4>`;
-        }} else {
-          containerCard.innerHTML = "<h2> Aggiungi altre informazioni </h2>"
-        };
+        }
+      } else {
+        containerCard.innerHTML = "<h2> Aggiungi altre informazioni </h2>";
       }
-   )};
-
+    });
+};
 
 // input.addEventListener("change", () => {
 //         searchBooks(input.value);
@@ -132,10 +132,8 @@ function nascondiCard(removeEvent) {
 
 function addCart(addEvent) {
   const card = addEvent.target.closest(".card");
-  const buttonColor = document.querySelectorAll(".shop");
-  const cardContent = document.querySelectorAll(".col-4");
 
-  // Creo delle variabili che contengono il testo da inserire nel carrello
+  // Variabili che contengono il testo da inserire nel carrello
   if (card) {
     const title = card.querySelector(".title-book").textContent;
     const category = card.querySelector(".description h6").textContent;
@@ -159,20 +157,20 @@ function addCart(addEvent) {
 
     // Contenuto carrello
 
-    const currentContent = infoBookModal.innerHTML;
+    const currentContentCart = infoBookModal.innerHTML;
 
     // Nuovo prodotto inserito nel carrello
 
-    const newContent = currentContent + productInfo;
+    const newContent = currentContentCart + productInfo;
     infoBookModal.innerHTML = newContent;
 
     // Cambio colore del bottone shop
-
-    cardContent.forEach((buttonColor) => {
-      buttonColor.addEventListener("click", function () {
-        buttonColor.classList.toggle("color-button");
-      });
-    });
-    // console.log(card);
   }
+}
+
+const buttonColor = document.querySelectorAll(".shop");
+const cardContent = document.querySelectorAll(".col-4");
+
+function changeColor(colorEvent) {
+  colorEvent.target.closest(".card").classList.toggle("color-button");
 }
