@@ -8,7 +8,7 @@ const booksHtml = () => {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
+      
 
       // !NAV SECTION
 
@@ -107,9 +107,6 @@ const searchBooks = function (searchEvent) {
     });
 };
 
-// input.addEventListener("change", () => {
-//         searchBooks(input.value);
-//       });
 
 //  !NASCONDI CARD
 
@@ -124,6 +121,7 @@ function nascondiCard(removeEvent) {
 
   // !Ho visto che è possibile fare lo stesso lavoro con style.display, è una cosa corretta oppure è
   // !più corretto il metodo che ho utilizzato con classList?
+  
   // const cardNascosta = removeEvent.target.closest(".card");
   // // console.log(cardNascosta);
   // if (cardNascosta) {
