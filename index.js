@@ -28,7 +28,7 @@ const booksHtml = () => {
                                 Carrello
                               </a>
                             <ul class="dropdown-menu infoBook">
-                               <div class="d-flex flex-wrap justify-content-around align-items-center>
+                               <div class="container-modal-title d-flex flex-wrap justify-content-around align-items-center>
                                  <h5 class="modal-cart-title"> Prodotti nel carrello: </h5>  
                                  <button class="modal-close"> Chiudi carrello </button> 
                                </div>                                     
