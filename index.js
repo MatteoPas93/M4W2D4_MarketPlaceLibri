@@ -61,7 +61,7 @@ const booksHtml = () => {
       });
     })
     .catch(err);
-  console.log(err);
+  console.log("Error" + err);
 };
 
 booksHtml();
