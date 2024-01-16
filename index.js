@@ -8,7 +8,7 @@ const booksHtml = () => {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       // !NAV SECTION
 
       nav.setAttribute("class", "container-nav");
@@ -46,8 +46,6 @@ const booksHtml = () => {
       //!CARD SECTION
 
       data.map((book) => {
-      // const asin = book.asin
-      // console.log(asin);
         containerCard.innerHTML += ` <div class="card col-4">
             <img class="book-img" src="${book.img}" alt="img libro"/>                           
                 <div class="description">                        
@@ -67,7 +65,7 @@ const booksHtml = () => {
                    </svg> </button>
                   </div>
                   <div class="button-details">
-                  <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id"> Dettagli </button>
+                  <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id${book.asin}"> Dettagli </button>
                   </div>
           </div>`;
       });
@@ -87,7 +85,6 @@ const searchBooks = function (searchEvent) {
     .then((data2) => {
       // Creo una variabile contenente il valore dell'elemento dell'evento.
       const searchInput = searchEvent.target.value.toLowerCase();
-      const asin = data2.asin
 
       if (searchInput.length > 3) {
         // Filtro i titoli
@@ -118,7 +115,7 @@ const searchBooks = function (searchEvent) {
                    </svg> </button>
                   </div>
                   <div class="button-details">
-                    <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id"> Dettagli </a> </button>
+                    <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id${book.asin}"> Dettagli </a> </button>
                   </div>
           </div> `;
           });
@@ -209,14 +206,12 @@ function removeProductCart(removeCartEvent) {
 
 const buttonDetails = document.querySelector(".details")
 
-function bookDetails() {
-const params = new URLSearchParams(location)
-console.log(location);
+function bookDetails(asin) {
+  window.location.href = `./dettagli.html?id=${asin}`
 }
 
-window.onload = () => {
-  bookDetails()
-}
+
+
 
 
 
