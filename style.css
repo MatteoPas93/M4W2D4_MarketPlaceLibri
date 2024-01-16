@@ -103,6 +103,11 @@
   margin-top: 15px;
 }
 
+.details a{
+ text-decoration: none;
+ color: black;
+}
+
 .description {
   margin-left: 5px;
 }
