@@ -58,7 +58,6 @@
   padding-bottom: 10px;
 }
 
-
 .modal-close {
   border-radius: 0px 0px 5px;
   background: #ca6363;
@@ -103,9 +102,9 @@
   margin-top: 15px;
 }
 
-.details a{
- text-decoration: none;
- color: black;
+.details a {
+  text-decoration: none;
+  color: black;
 }
 
 .description {

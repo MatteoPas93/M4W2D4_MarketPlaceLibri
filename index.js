@@ -6,12 +6,10 @@ const booksApi = "https://striveschool-api.herokuapp.com/books";
 let nav = document.createElement("nav");
 let allCards = document.createElement("div");
 
-
 const booksHtml = () => {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data) => {
-      
       // !NAV SECTION
 
       nav.setAttribute("class", "container-nav");
@@ -22,8 +20,6 @@ const booksHtml = () => {
       // const containerCards = document.querySelector(".container-cards")
       // containerCards.appenChild(allCards);
       document.body.appendChild(allCards);
-
-    
 
       nav.innerHTML += ` <nav class="navbar navbar-expand-lg bg-body-tertiary">
            <div class="container-fluid">
@@ -50,10 +46,9 @@ const booksHtml = () => {
              </div>
          </nav> `;
 
-const input = document.querySelector("#search-input");
+      const input = document.querySelector("#search-input");
 
-input.addEventListener("change", searchBooks)
-
+      input.addEventListener("change", searchBooks);
 
       //!CARD SECTION
 
@@ -77,27 +72,25 @@ input.addEventListener("change", searchBooks)
                    </svg> </button>
                   </div>
                   <div class="button-details">
-                  <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id=${book.asin}"> Dettagli </button>
+                  <button class="details"> <a href="./dettagli.html?id=${book.asin}"> Dettagli </button>
                   </div>
         </div>`;
       });
 
       const buttonNascondi = document.querySelectorAll(".nascondi");
-      buttonNascondi.forEach(button => 
-      button.addEventListener("click", nascondiCard));
+      buttonNascondi.forEach((button) =>
+        button.addEventListener("click", nascondiCard)
+      );
 
-      const buttonShop = document.querySelectorAll(".shop")
-      buttonShop.forEach(shop => 
-      shop.addEventListener("click", addCart))
+      const buttonShop = document.querySelectorAll(".shop");
+      buttonShop.forEach((shop) => shop.addEventListener("click", addCart));
 
-      const buttonColor = document.querySelectorAll(".color")
-      buttonColor.forEach(colored => 
-      colored.addEventListener("click", changeColor))
-
+      const buttonColor = document.querySelectorAll(".color");
+      buttonColor.forEach((colored) =>
+        colored.addEventListener("click", changeColor)
+      );
     })
-    .catch(err =>
-    console.log("Error" + err));
-    
+    .catch((err) => console.log("Error" + err));
 };
 
 booksHtml();
@@ -140,7 +133,7 @@ const searchBooks = function (searchEvent) {
                    </svg> </button>
                   </div>
                   <div class="button-details">
-                    <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id${book.asin}"> Dettagli </a> </button>
+                    <button class="details"> <a href="/dettagli.html?id$=${book.asin}"> Dettagli </a> </button>
                   </div>
           </div> `;
           });
@@ -149,8 +142,7 @@ const searchBooks = function (searchEvent) {
         allCards.innerHTML = "<h2> Aggiungi altre informazioni </h2>";
       }
     })
-    .catch(err =>
-      console.log("Error" + err));
+    .catch((err) => console.log("Error" + err));
 };
 
 //  !NASCONDI CARD
@@ -225,21 +217,3 @@ function removeProductCart(removeCartEvent) {
     removedProduct.remove();
   }
 }
-
-
-// !DETTAGLI LIBRO
-
-// const buttonDetails = document.querySelector(".details")
-
-// function bookDetails(asin) {
-//   window.location.href = `./dettagli.html?id=${asin}`
-// }
-
-
-
-
-
-
-
-
-
