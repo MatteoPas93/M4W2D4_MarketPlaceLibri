@@ -49,7 +49,7 @@
 //                      </svg> </button>
 //                     </div>
 //                     <div class="button-details">
-//                       <button class="details" onclick="bookDetails()"> <a href="./dettagli.html?id${book.asin}"> Dettagli </a> </button>
+//                       <button class="details"> <a href="./dettagli.html?id=${book.asin}"> Dettagli </a> </button>
 //                     </div>
 //             </div> `;
 //             });

@@ -202,9 +202,6 @@ function addCart(addEvent) {
 
 // !CAMBIO COLORE
 
-const color = document.querySelectorAll(".shop");
-const cardContent = document.querySelectorAll(".col-4");
-
 function changeColor(colorEvent) {
   colorEvent.target.closest(".card").classList.toggle("color-button");
 }
