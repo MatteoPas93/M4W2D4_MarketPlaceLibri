@@ -1,6 +1,3 @@
-// function bookDetails(asin) {
-//   window.location.href = `./dettagli.html?id=${asin}`
-// }
 
 const params = new URLSearchParams(location.search);
 const bookId = params.get("id");

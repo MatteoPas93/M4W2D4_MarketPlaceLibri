@@ -95,7 +95,7 @@ const booksHtml = () => {
 
 booksHtml();
 
-
+// !SEARCH BOOKS FUNCTION
  const searchBooks = function (searchEvent) {
   fetch(booksApi)
     .then((res) => res.json())

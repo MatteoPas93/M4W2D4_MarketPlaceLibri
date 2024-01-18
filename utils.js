@@ -78,7 +78,7 @@ let allCards = document.createElement("div");
     // }
   }
   
-  // !AGGIUNGI AL CARRELLO & CAMBIO COLORE BOTTONE SHOP
+  // !ADDCART FUNCTION
   
   export function addCart(addEvent) {
     const card = addEvent.target.closest(".card");
@@ -115,7 +115,7 @@ let allCards = document.createElement("div");
     }
   }
   
-  // !CAMBIO COLORE
+  // !CHANGE COLOR FUNCTION
   
    const color = document.querySelectorAll(".shop");
    const cardContent = document.querySelectorAll(".col-4");
@@ -124,7 +124,7 @@ let allCards = document.createElement("div");
     colorEvent.target.closest(".card").classList.toggle("color-button");
   }
   
-  // !RIMUOVI DA CARRELLO
+  // !REMOVE CART FUNCTION
   
   export function removeProductCart(removeCartEvent) {
     const removedProduct = removeCartEvent.target.closest(".modal-text");
