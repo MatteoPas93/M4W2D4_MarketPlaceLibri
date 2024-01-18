@@ -112,7 +112,7 @@ booksHtml();
           // Ciclo attraverso il forEach tutti i titoli
           result.forEach((book) => {
             allCards.innerHTML = "";
-            allCards.innerHTML = ` <h1> Libri trovati: </h1>
+            allCards.innerHTML += ` <h1> Libri trovati: </h1>
               <div class="card col-4">
             <img class="book-img" src="${book.img}" alt="img libro"/>                           
                 <div class="description">                        
