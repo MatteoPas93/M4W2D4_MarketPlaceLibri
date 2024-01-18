@@ -1,15 +1,13 @@
-// export const booksApi = "https://striveschool-api.herokuapp.com/books";
+const booksApi = "https://striveschool-api.herokuapp.com/books";
 
-// // export const nav = document.createElement("nav");
-// // export const containerCard = document.createElement("div");
-// // export const input = document.querySelector("#search-input");
 
-// // const nav = document.createElement("nav");
-// // const containerCard = document.createElement("div");
-// // const input = document.querySelector("#search-input");
 
-// // let nav = document.createElement("nav");
-// export let allCards = document.createElement("div");
+// const nav = document.createElement("nav");
+const containerCard = document.createElement("div");
+const input = document.querySelector("#search-input");
+
+let nav = document.createElement("nav");
+let allCards = document.createElement("div");
 
 
 
@@ -62,84 +60,76 @@
 //         console.log("Error" + err));
 //   };
   
-//   //  !NASCONDI CARD
+  //  !NASCONDI CARD
   
-//   export const cardNascosta = document.querySelectorAll(".card");
+  const cardNascosta = document.querySelectorAll(".card");
   
-//   export function nascondiCard(removeEvent) {
-//     cardNascosta.forEach((dNoneCard) => {
-//       dNoneCard.classList.remove("display-none");
-//     });
+  export function nascondiCard(removeEvent) {
+    cardNascosta.forEach((dNoneCard) => {
+      dNoneCard.classList.remove("display-none");
+    });
   
-//     removeEvent.target.closest(".card").classList.add("display-none");
+    removeEvent.target.closest(".card").classList.add("display-none");
   
-//     // const cardNascosta = removeEvent.target.closest(".card");
-//     // // console.log(cardNascosta);
-//     // if (cardNascosta) {
-//     //   cardNascosta.style.display = "none";
-//     // }
-//   }
+    // const cardNascosta = removeEvent.target.closest(".card");
+    // // console.log(cardNascosta);
+    // if (cardNascosta) {
+    //   cardNascosta.style.display = "none";
+    // }
+  }
   
-//   // !AGGIUNGI AL CARRELLO & CAMBIO COLORE BOTTONE SHOP
+  // !AGGIUNGI AL CARRELLO & CAMBIO COLORE BOTTONE SHOP
   
-//   export function addCart(addEvent) {
-//     const card = addEvent.target.closest(".card");
+  export function addCart(addEvent) {
+    const card = addEvent.target.closest(".card");
   
-//     // Variabili che contengono il testo da inserire nel carrello
-//     if (card) {
-//       const title = card.querySelector(".title-book").textContent;
-//       const category = card.querySelector(".description h6").textContent;
-//       const price = card.querySelector(".price-book").textContent;
+    // Variabili che contengono il testo da inserire nel carrello
+    if (card) {
+      const title = card.querySelector(".title-book").textContent;
+      const category = card.querySelector(".description h6").textContent;
+      const price = card.querySelector(".price-book").textContent;
   
-//       const productInfo = ` <div class="modal-text">
-//             <div class="modal-description">
-//                 <p> 
-//                   <b> - ${title} </b>, <b> ${category} </b>, <b> ${price} </b>
-//                 </p>
-//             </div>
-//             <div class="modal-button"> 
-//               <button class="remove-products" onclick="removeProductCart(event)"> <b> - </b> </button>
-//               <button> <b> + </b> </button>
-//             </div>
-//         </div>
-//       `;
+      const productInfo = ` <div class="modal-text">
+            <div class="modal-description">
+                <p> 
+                  <b> - ${title} </b>, <b> ${category} </b>, <b> ${price} </b>
+                </p>
+            </div>
+            <div class="modal-button"> 
+              <button class="remove-products" onclick="removeProductCart(event)"> <b> - </b> </button>
+              <button> <b> + </b> </button>
+            </div>
+        </div>
+      `;
   
-//       const infoBookModal = document.querySelector(".infoBook");
+      const infoBookModal = document.querySelector(".infoBook");
   
-//       // Contenuto carrello
+      // Contenuto carrello
   
-//       const currentContentCart = infoBookModal.innerHTML;
+      const currentContentCart = infoBookModal.innerHTML;
   
-//       // Nuovo prodotto inserito nel carrello
+      // Nuovo prodotto inserito nel carrello
   
-//       const newContent = currentContentCart + productInfo;
-//       infoBookModal.innerHTML = newContent;
-//     }
-//   }
+      const newContent = currentContentCart + productInfo;
+      infoBookModal.innerHTML = newContent;
+    }
+  }
   
-//   // !CAMBIO COLORE
+  // !CAMBIO COLORE
   
-//   export const color = document.querySelectorAll(".shop");
-//   export const cardContent = document.querySelectorAll(".col-4");
+   const color = document.querySelectorAll(".shop");
+   const cardContent = document.querySelectorAll(".col-4");
   
-//   export function changeColor(colorEvent) {
-//     colorEvent.target.closest(".card").classList.toggle("color-button");
-//   }
+  export function changeColor(colorEvent) {
+    colorEvent.target.closest(".card").classList.toggle("color-button");
+  }
   
-//   // !RIMUOVI DA CARRELLO
+  // !RIMUOVI DA CARRELLO
   
-//   export function removeProductCart(removeCartEvent) {
-//     const removedProduct = removeCartEvent.target.closest(".modal-text");
-//     if (removedProduct) {
-//       removedProduct.remove();
-//     }
-//   }
+  export function removeProductCart(removeCartEvent) {
+    const removedProduct = removeCartEvent.target.closest(".modal-text");
+    if (removedProduct) {
+      removedProduct.remove();
+    }
+  }
   
-  
-//   // !DETTAGLI LIBRO
-  
-//   export const buttonDetails = document.querySelector(".details")
-  
-//  export function bookDetails(asin) {
-//     window.location.href = `./dettagli.html?id=${asin}`
-//   }

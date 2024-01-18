@@ -1,5 +1,5 @@
-// import * as utils from './utils.js'
-// import { details } from "./dettagli.js";
+
+import { nascondiCard, addCart, changeColor } from './utils.js';
 
 const booksApi = "https://striveschool-api.herokuapp.com/books";
 
@@ -95,9 +95,8 @@ const booksHtml = () => {
 
 booksHtml();
 
-// !RICERCA LIBRI
 
-const searchBooks = function (searchEvent) {
+ const searchBooks = function (searchEvent) {
   fetch(booksApi)
     .then((res) => res.json())
     .then((data2) => {
@@ -133,7 +132,7 @@ const searchBooks = function (searchEvent) {
                    </svg> </button>
                   </div>
                   <div class="button-details">
-                    <button class="details"> <a href="/dettagli.html?id$=${book.asin}"> Dettagli </a> </button>
+                    <button class="details"> <a href="./dettagli.html?id=${book.asin}"> Dettagli </a> </button>
                   </div>
           </div> `;
           });
@@ -142,75 +141,7 @@ const searchBooks = function (searchEvent) {
         allCards.innerHTML = "<h2> Aggiungi altre informazioni </h2>";
       }
     })
-    .catch((err) => console.log("Error" + err));
+    .catch(err =>
+      console.log("Error" + err));
 };
 
-//  !NASCONDI CARD
-
-const cardNascosta = document.querySelectorAll(".card");
-
-function nascondiCard(removeEvent) {
-  cardNascosta.forEach((dNoneCard) => {
-    dNoneCard.classList.remove("display-none");
-  });
-
-  removeEvent.target.closest(".card").classList.add("display-none");
-
-  // const cardNascosta = removeEvent.target.closest(".card");
-  // // console.log(cardNascosta);
-  // if (cardNascosta) {
-  //   cardNascosta.style.display = "none";
-  // }
-}
-
-// !AGGIUNGI AL CARRELLO & CAMBIO COLORE BOTTONE SHOP
-
-function addCart(addEvent) {
-  const card = addEvent.target.closest(".card");
-
-  // Variabili che contengono il testo da inserire nel carrello
-  if (card) {
-    const title = card.querySelector(".title-book").textContent;
-    const category = card.querySelector(".description h6").textContent;
-    const price = card.querySelector(".price-book").textContent;
-
-    const productInfo = ` <div class="modal-text">
-          <div class="modal-description">
-              <p> 
-                <b> - ${title} </b>, <b> ${category} </b>, <b> ${price} </b>
-              </p>
-          </div>
-          <div class="modal-button"> 
-            <button class="remove-products" onclick="removeProductCart(event)"> <b> - </b> </button>
-            <button> <b> + </b> </button>
-          </div>
-      </div>
-    `;
-
-    const infoBookModal = document.querySelector(".infoBook");
-
-    // Contenuto carrello
-
-    const currentContentCart = infoBookModal.innerHTML;
-
-    // Nuovo prodotto inserito nel carrello
-
-    const newContent = currentContentCart + productInfo;
-    infoBookModal.innerHTML = newContent;
-  }
-}
-
-// !CAMBIO COLORE
-
-function changeColor(colorEvent) {
-  colorEvent.target.closest(".card").classList.toggle("color-button");
-}
-
-// !RIMUOVI DA CARRELLO
-
-function removeProductCart(removeCartEvent) {
-  const removedProduct = removeCartEvent.target.closest(".modal-text");
-  if (removedProduct) {
-    removedProduct.remove();
-  }
-}
