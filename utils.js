@@ -65,9 +65,9 @@ let allCards = document.createElement("div");
   const cardNascosta = document.querySelectorAll(".card");
   
   export function nascondiCard(removeEvent) {
-    cardNascosta.forEach((dNoneCard) => {
-      dNoneCard.classList.remove("display-none");
-    });
+    // cardNascosta.forEach((dNoneCard) => {
+    //   dNoneCard.classList.remove("display-none");
+    // });
   
     removeEvent.target.closest(".card").classList.add("display-none");
   

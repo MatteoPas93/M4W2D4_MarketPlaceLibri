@@ -1,18 +1,10 @@
-
 import { nascondiCard, addCart, changeColor } from './utils.js';
 
 const booksApi = "https://striveschool-api.herokuapp.com/books";
 
 let nav = document.createElement("nav");
 let allCards = document.createElement("div");
-
-const booksHtml = () => {
-  fetch(booksApi)
-    .then((res) => res.json())
-    .then((data) => {
-      // !NAV SECTION
-
-      nav.setAttribute("class", "container-nav");
+nav.setAttribute("class", "container-nav");
       // const containerNav = document.querySelector(".container-nav")
       // contaienrNav.appendChild(nav);
       document.body.appendChild(nav);
@@ -20,6 +12,14 @@ const booksHtml = () => {
       // const containerCards = document.querySelector(".container-cards")
       // containerCards.appenChild(allCards);
       document.body.appendChild(allCards);
+
+const booksHtml = () => {
+  fetch(booksApi)
+    .then((res) => res.json())
+    .then((data) => {
+      // !NAV SECTION
+
+      
 
       nav.innerHTML += ` <nav class="navbar navbar-expand-lg bg-body-tertiary">
            <div class="container-fluid">

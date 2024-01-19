@@ -1,7 +1,7 @@
 
 const params = new URLSearchParams(location.search);
 const bookId = params.get("id");
-const buttonDetails = document.querySelector(".details");
+
 
 function details() {
   fetch("https://striveschool-api.herokuapp.com/books/" + bookId)
